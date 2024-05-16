@@ -15,12 +15,12 @@ let senha = "";
 let telefone = "";
 let cod_produto = "";
 let quantidade = "";
-let preço = ""; 
+let preco = ""; 
 let produtoRemovido = "";
-let cod_serviço = "";
-let serviçoRemovido = "";
+let cod_servico = "";
+let servicoRemovido = "";
 let op_produto;
-let  op_serviço;
+let  op_servico;
 let op_pagamento;
 let data_agendamento;
 let hora_agendamento;
@@ -54,6 +54,8 @@ do {
     readline.question("Login inválido, tente novamente! \nVocê tem " + tentativas + " tentativas \nPress enter to continue...");
 }
 } while (login !== "admin" || senha !== "admin");
+
+do {
   console.clear();
   console.log("=========================================");
   console.log("|  Bem vindo ao Auto Peças e Serviços!  |");
@@ -66,7 +68,6 @@ do {
   console.log("|\t5. Cadastrar Venda\t\t|");
   console.log("|\t0. Sair do sistema\t\t|");
   console.log("=========================================")
-
   op = parseInt(readline.question("Escolha uma opcao: "));
 
   switch (op) {
@@ -95,7 +96,7 @@ do {
                 readline.question("Pressione ENTER para continuar...");
                 break;
               case 2:
-                console.log("Listando todos os usuáros...");
+                console.log("Listando todos os usuários...");
                 console.log(`${nome} ${sobrenome}`);
                 readline.question("Pressione ENTER para continuar...");
                 break;
@@ -131,7 +132,7 @@ do {
                 console.log("Cadastrando novo cliente...");
                 nome = readline.question("Nome: ");
                 sobrenome = readline.question("Sobrenome: ");
-                CPF = readline.question("CPF: ");
+                cpf = readline.question("CPF: ");
                 email = readline.question("E-mail: ");
                 telefone = readline.question("Telefone: ");
                 console.log(`Cliente ${nome} ${sobrenome} cadastrado com sucesso!`);
@@ -146,7 +147,7 @@ do {
                 console.log("Alterando um cliente...");
                 nome = readline.question("Nome: ");
                 sobrenome = readline.question("Sobrenome: ");
-                CPF = readline.question("CPF: ");
+                cpf = readline.question("CPF: ");
                 email = readline.question("E-mail: ");
                 telefone = readline.question("Telefone: ");
                 console.log(`Cliente atualizado com sucesso!`);
@@ -194,8 +195,8 @@ do {
                 cod_produto = readline.question("Código:")
                 nome = readline.question("Produto: ");
                 quantidade = readline.question("Quantidade: ");
-                preço = readline.question("Preço: ");  
-                console.log(`Produto ${cod_produto} - ${nome} - ${quantidade} Und - R$ ${preço} cadastrado com sucesso!`);
+                preco = readline.question("Preço: ");  
+                console.log(`Produto ${cod_produto} - ${nome} - ${quantidade} Und - R$ ${preco} cadastrado com sucesso!`);
                 readline.question("Pressione ENTER para continuar...");
                 break;
               case 2:
@@ -208,7 +209,7 @@ do {
                 cod_produto = readline.question("Código:")
                 nome = readline.question("Produto: ");
                 quantidade = readline.question("Quantidade: ");
-                preço = readline.question("Preço: "); 
+                preco = readline.question("Preço: "); 
                 console.log(`Produto atualizado com sucesso!`);
                 readline.question("Pressione ENTER para continuar...");
                 break;
@@ -249,10 +250,10 @@ do {
             switch (op5) {
               case 1:
                 console.log("Cadastrando novo Serviço...");
-                cod_serviço = readline.question("Código:")
+                cod_servico = readline.question("Código:")
                 nome = readline.question("Serviço: ");
-                preço = readline.question("Preço: ");  
-                console.log(`Serviço ${cod_serviço} - ${nome} - R$ ${preço} cadastrado com sucesso!`);
+                preco = readline.question("Preço: ");  
+                console.log(`Serviço ${cod_servico} - ${nome} - R$ ${preco} cadastrado com sucesso!`);
                 readline.question("Pressione ENTER para continuar...");
                 break;
               case 2:
@@ -262,15 +263,15 @@ do {
                 break;
               case 3:
                 console.log("Alterando um Serviço...");
-                cod_serviço = readline.question("Código:")
+                cod_servico = readline.question("Código:")
                 nome = readline.question("Serviço: ");
-                preço = readline.question("Preço: ");  
+                preco = readline.question("Preço: ");  
                 console.log(`Serviço atualizado com sucesso!`);
                 readline.question("Pressione ENTER para continuar...");
                 break;
               case 4:
                 console.log("Digite o Serviço que deseja remover:");
-                serviçoRemovido = readline.question("Nome: ");
+                servicoRemovido = readline.question("Nome: ");
                 nome = "";
                 console.log(`Serviço ${nome} removido com sucesso!`);
                 readline.question("Pressione ENTER para continuar...");
@@ -295,7 +296,7 @@ do {
         console.log("|\t1. Escolher Produto\t\t|");
         console.log("|\t2. Escolher Serviço\t\t|");
         console.log("|\t3. Agendar Serviço\t\t|");
-        console.log("|\t4. Finaliza Pedido\t\t|");
+        console.log("|\t4. Finalizar Pedido\t\t|");
         console.log("|\t0. Voltar ao Menu Principal\t|");
         console.log("|\t\t\t\t\t|");
         console.log("|=======================================|");
@@ -312,7 +313,7 @@ do {
                     console.log("|\t\t\t\t\t|");
                     console.log("|\t1. Óleo\t\t\t\t|");
                     console.log("|\t2. Faróis e Lanternas\t\t|");
-                    console.log("|\t3. Suspenção\t\t\t|");
+                    console.log("|\t3. Suspensão\t\t\t|");
                     console.log("|\t4. Pastilhas de Freio\t\t|");
                     console.log("|\t5. Filtro de Ar\t\t\t|");
                     console.log("|\t0. Voltar ao Menu Pedido\t|");
@@ -341,6 +342,7 @@ do {
                       case 5:
                         console.log("Filtro de Ar - Produto escolhido com sucesso!");
                         readline.question("Pressione ENTER para continuar...");
+                        break;
                       case 0:
                         console.log("Voltando para o Menu Pedido...");
                         readline.question("Pressione ENTER para continuar...");
@@ -367,9 +369,9 @@ do {
                     console.log("|\t\t\t\t\t|");
                     console.log("|=======================================|");
       
-                    op_serviço = parseInt(readline.question("Escolha uma opcao: "));
+                    op_servico = parseInt(readline.question("Escolha uma opcao: "));
       
-                    switch (op_serviço) {
+                    switch (op_servico) {
                       case 1:
                         console.log("Troca de Óleo - Serviço escolhido com sucesso!");
                         readline.question("Pressione ENTER para continuar...");
@@ -389,6 +391,7 @@ do {
                       case 5:
                         console.log("Troca de Filtro de Ar - Serviço escolhido com sucesso!");
                         readline.question("Pressione ENTER para continuar...");
+                        break;
                       case 0:
                         console.log("Voltando para o Menu Pedido...");
                         readline.question("Pressione ENTER para continuar...");
@@ -419,17 +422,28 @@ do {
                 console.log("|\t0. Voltar ao Menu Pedido\t|");
                 console.log("|\t\t\t\t\t|");
                 console.log("|=======================================|");
+
                 op_pagamento = parseInt(readline.question("Escolha uma opcao: "));
+                
                 switch (op_pagamento) {
                     case 1:
-                        console.log ("Codigo PIX: 00020101021226850014br.gov.bcb.pix2563pix.santander.com.br/qr")
-                        console.log ("Por favor, siga as instruções:")
-                        console.log ("1 Acesse o app do seu banco ou internet banking de preferência.")
-                        console.log ("2 Escolha pagar via Pix.")
-                        console.log ("3 Escaneie o QR Code ou copie e cole o código Pix acima.")
-                        console.log ("4 Seu pagamento será aprovado em alguns segundos.")
-                        console.log("PEDIDO FINALIZADO COM SUCESSO!!!");
-                        readline.question("Pressione ENTER para continuar...");
+                        console.log ("Chave PIX: 00020101021226850014br.gov.bcb.pix2563pix.santander.com.br/qr");
+                        console.log ("Por favor, siga as instruções:");
+                        console.log ("1 - Acesse o app do seu banco ou internet banking de preferência.");
+                        console.log ("2 - Escolha pagar via Pix.");
+                        console.log ("3 - Escaneie o QR Code ou copie e cole o código Pix acima.");
+                        console.log ("4 - Seu pagamento será aprovado em alguns segundos.");
+                        readline.question("Após feito o pagamento para a chave pix, Pressione ENTER para continuar...");
+
+                        console.clear();
+                        console.log("===========================================================")
+                        console.log("|                                                         |")
+                        console.log("|              PEDIDO FINALIZADO COM SUCESSO!!!!          |")
+                        console.log("|                                                         |")
+                        console.log("|                                                         |")
+                        console.log("===========================================================")
+                       op_pagamento = readline.question("aperte enter para voltar ao menu de pagamento...")
+
                         break;
                     case 2:
                         console.log("CADASTRE SEU CARTÃO...");
@@ -437,31 +451,50 @@ do {
                         data_cartao = readline.question("Data de Validade: ");
                         cvv = readline.question("CVV: ");
                         nome_cartao = readline.question("Nome no Cartão: ");
-                        parcelamento = readline.question("digite o parcelamento:")
-                        console.log("PEDIDO FINALIZADO COM SUCESSO!!!");
-                        readline.question("Pressione ENTER para continuar...");
+                        parcelamento = readline.question("digite o parcelamento: ");
+                        readline.question("Após cadastrado as informações do cartão e feito o pagamento, Pressione ENTER para continuar...");
+
+                        console.clear();
+                        console.log("===========================================================")
+                        console.log("|                                                         |")
+                        console.log("|              PEDIDO FINALIZADO COM SUCESSO!!!!          |")
+                        console.log("|                                                         |")
+                        console.log("|                                                         |")
+                        console.log("===========================================================")
+                       op_pagamento = readline.question("aperte enter para voltar ao menu de pagamento...")
+
                         break;
                     case 3:
-                        console.log ("Codigo Boleto: 03399.54349 20380.678845 14896.801017 5 96980000020531")
-                        console.log ("Por favor, siga as instruções:")
-                        console.log ("1 Use a linha digitável ou código de barras acima para pagar usando seu internet banking ou dirija-se a um banco, caixa eletrônico ou lotérica com seu boleto impresso.")
-                        console.log ("2 Importante: se o seu boleto tem a data de vencimento em um fim de semana ou feriado, você poderá pagá-lo normalmente no próximo dia útil.")
-                        console.log ("3 A confirmação do seu pagamento pode levar até 3 dias úteis.")
-                        console.log("PEDIDO FINALIZADO COM SUCESSO!!!");
-                        readline.question("Pressione ENTER para continuar...");
+                        console.log ("Codigo Boleto: 03399.54349 20380.678845 14896.801017 5 96980000020531");
+                        console.log ("Por favor, siga as instruções:");
+                        console.log ("1 - Use a linha digitável ou código de barras acima para pagar usando seu internet banking ou dirija-se a um banco, caixa eletrônico ou lotérica com seu boleto impresso.");
+                        console.log ("2 - IMPORTANTE: se o seu boleto tem a data de vencimento em um fim de semana ou feriado, você poderá pagá-lo normalmente no próximo dia útil.");
+                        console.log ("3 - IMPORTANTE: salve o código do boleto ou imprima para não perdê-lo.");
+                        console.log ("4 - A confirmação do seu pagamento pode levar até 3 dias úteis.");
+                        readline.question("Após gerado o código do boleto, Pressione ENTER para continuar...");
+
+                        console.clear();
+                        console.log("===========================================================")
+                        console.log("|                                                         |")
+                        console.log("|              PEDIDO FINALIZADO COM SUCESSO!!!!          |")
+                        console.log("|                                                         |")
+                        console.log("|                                                         |")
+                        console.log("===========================================================")
+                       op_pagamento = readline.question("aperte enter para voltar ao menu de pagamento...")
+
                         break;
                     case 0:
-                    console.log("Voltando para o Menu Pedido...");
-                    readline.question("Pressione ENTER para continuar...");
-                    break;
+                        console.log("Voltando para o Menu Pedido...");
+                        readline.question("Pressione ENTER para continuar...");
+                        break;
                     default:
-                    console.log("Opção inválida.");
-                    readline.question("Pressione ENTER para continuar...");
+                        console.log("Opção inválida.");
+                        readline.question("Pressione ENTER para continuar...");
                 }
                 } while (op_pagamento !== 0);
                 break;
             case 0:
-            console.log("Voltando para o Menu Pedido...");
+            console.log("Voltando para o Menu Principal...");
               readline.question("Pressione ENTER para continuar...");
               break;
             default:
@@ -477,4 +510,6 @@ do {
       console.log("Opção inválida.");
       readline.question("Pressione ENTER para continuar...");
   }
- while (op !== 0);
+} while (op !== 0);
+
+
